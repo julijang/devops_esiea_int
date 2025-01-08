@@ -13,7 +13,6 @@ stages {
             script {
                 def name = "${params.NAME}"
                 def desc = "${params.DESC}"
-                def boolean = "${params.SKIP_TEST}"
                 def branch = "${params.BRANCH}"
                 def pass = "${params.SONAR_SERVER_PASSWORD}"
                 if(branch == "Master") {
