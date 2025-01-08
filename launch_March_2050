@@ -2,12 +2,10 @@ pipeline {
 agent any
 stages {
     stage('BUILD') {
-      stage ('check-de-la-coque') {
-        steps {
-            echo "Checking de la coque"
-            sleep 10
-            echo "Integrité de la coque à 100%"
-        }
+      steps {
+        echo "Checking de la coque"
+        sleep 10
+        echo "Integrité de la coque à 100%"
       }
     }
     stage('TEST') {
@@ -96,12 +94,10 @@ stages {
       }
     }
     stage('DEPLOY') {
-      stage ('verification-propulseur') {
-          steps {
-            echo "Verification de l'integrite des propulseurs."
-            sleep 10
-            echo "Propuleseurs intactes"
-          }
+      steps {
+        echo "Verification de l'integrite des propulseurs."
+        sleep 10
+        echo "Propuleseurs intactes"
       }
     }
   }
