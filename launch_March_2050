@@ -1,7 +1,7 @@
 pipeline {
 agent any
 stages {
-    stages('BUILD') {
+    stage('BUILD') {
       stage ('check-de-la-coque') {
         steps {
             echo "Checking de la coque"
@@ -10,74 +10,92 @@ stages {
         }
       }
     }
-    stages('TEST') {
+    stage('TEST') {
       parallel {
         stage ('verification-electronique') {
           steps {
-            echo "Verification des systemes l'electroniques"
-            sleep 10
-            echo "Integrite du systeme electronique à 100%"
+            script {
+              echo "Verification des systemes l'electroniques"
+              sleep 10
+              echo "Integrite du systeme electronique à 100%"
+            }
           }
         }
         stage ('verification-carburant') {
           steps {
-            echo "Verification du niveau de carburant"
-            sleep 10
-            echo "Réservoir rempli à 74%"
+            script {
+              echo "Verification du niveau de carburant"
+              sleep 10
+              echo "Réservoir rempli à 74%"
+            }
           }
         }
         stage ('verification-equipement-nav') {
           steps {
-            echo "Verification des équipement de navigation"
-            sleep 10
-            echo "Léger disfonctionnement de la carte numerique"
+            script {
+              echo "Verification des équipement de navigation"
+              sleep 10
+              echo "Léger disfonctionnement de la carte numerique"
+            }
           }
         }
         stage ('verification-equipement-sec') {
           steps {
-            echo "Verification de l'integrite des equipements de secours"
-            sleep 10
-            echo "Equipements de secours ok"
+            script {
+              echo "Verification de l'integrite des equipements de secours"
+              sleep 10
+              echo "Equipements de secours ok"
+            }
           }
         }
         stage ('verification-communication') {
           steps {
-            echo "Verification des equipements de communication"
-            sleep 10
-            echo "Test radio ok. "
+            script {
+              echo "Verification des equipements de communication"
+              sleep 10
+              echo "Test radio ok. "
+            }
           }
         }
         stage ('verification-vitesse') {
           steps {
-            echo "Verification de la vitesse"
-            sleep 15
-            echo "Test de vitesse ok. "
+            script {
+              echo "Verification de la vitesse"
+              sleep 15
+              echo "Test de vitesse ok. "
+            }
           }
         }
         stage ('verification-trajectoire') {
           steps {
-            echo "Verification de la trajectoire"
-            sleep 10
-            echo "trajectoire ok. "
+            script {
+              echo "Verification de la trajectoire"
+              sleep 10
+              echo "trajectoire ok. "
+            }
           }
         }
         stage ('verification-altitude') {
           steps {
-            echo "Verification de l'altitude"
-            sleep 10
-            echo "Test altitude ok. "
+            script {
+              echo "Verification de l'altitude"
+              sleep 10
+              echo "Test altitude ok. "
+            }
           }
         }
         stage ('verification-train') {
           steps {
-            echo "Verification du déploiement du train d'atterissage"
-            sleep 10
-            echo "Train sorti. "
+            script {
+              echo "Verification du déploiement du train d'atterissage"
+              sleep 10
+              echo "Train sorti. "
+            }
           }
         }
       }
     }
-    stages('DEPLOY') {
+    stage('DEPLOY') {
       stage ('verification-propulseur') {
           steps {
             echo "Verification de l'integrite des propulseurs."
