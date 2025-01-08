@@ -1,7 +1,7 @@
 pipeline {
 agent any
 stages {
-    stage('BUILD') {
+    stages('BUILD') {
       stage ('check-de-la-coque') {
         steps {
             echo "Checking de la coque"
@@ -10,7 +10,7 @@ stages {
         }
       }
     }
-    stage('TEST') {
+    stages('TEST') {
       parallel {
         stage ('verification-electronique') {
           steps {
@@ -77,7 +77,7 @@ stages {
         }
       }
     }
-    stage('DEPLOY') {
+    stages('DEPLOY') {
       stage ('verification-propulseur') {
           steps {
             echo "Verification de l'integrite des propulseurs."
