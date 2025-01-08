@@ -10,17 +10,11 @@ password(name: 'SONAR_SERVER_PASSWORD', description: 'Enter SONAR password')
 stages {
     stage('Printing name') {
         steps {
-            script {
-                def name = "${params.NAME}"
-                def desc = "${params.DESC}"
-                def branch = "${params.BRANCH}"
-                def pass = "${params.SONAR_SERVER_PASSWORD}"
-                if(branch == "Master") {
-                echo "Branch: $branch"
-                        }
-                else {
-                echo "Branch: $branch"
-                }
+                echo "Hello ${params.NAME}"
+                echo "Job Details: ${params.DESC}"
+                echo "Skip running Test Case ?: ${params.SKIP_TEST}"
+                echo "Branch Choice: ${params.BRANCH}"
+                echo "SONAR Password: ${params.SONAR_SERVER_PWD}"
             }
         }
     }
